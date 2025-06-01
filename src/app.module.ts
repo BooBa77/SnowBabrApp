@@ -11,7 +11,7 @@ import { TelegramLoginService } from './telegram-login/telegram-login.service';
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: process.env.DB_HOST,
-      port: parseInt(process.env.DB_PORT, 10), // Преобразуем в число
+      port: process.env.DB_PORT ? parseInt(process.env.DB_PORT, 10) : 5432, // Преобразуем в число
       username: process.env.DB_USERNAME,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_NAME,
